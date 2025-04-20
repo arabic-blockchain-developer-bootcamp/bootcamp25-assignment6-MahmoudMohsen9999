@@ -1,4 +1,10 @@
-name: CI
+name:  Cache Foundry dependencies
+  uses:actions/cache@v3
+  with:
+  path: ~/.foundry
+    key: ${{ runner.os }}-foundry-${{ hashFiles('**/foundry.toml') }}
+    restore-keys: |
+      ${{ runner.os }}-foundry-
 
 on:
   push:
